@@ -1,0 +1,84 @@
+.navbar {
+  background-color: #222225;
+  padding: 16px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  height: 27px;
+  width: auto;
+  cursor: pointer;
+}
+
+.navbar-search {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 30px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14.5px 16px 14.5px 45px;
+  border: 1px solid #747474;
+  border-radius: 25px;
+  font-size: 10px;
+  background-color: #222225;
+  color: white;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-icon:hover {
+  opacity: 0.7;
+}
+
+.signup-login-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 12px;
+  border-radius: 12px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 100;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.signup-login-btn:hover {
+  background-color: white;
+  color: #222225;
+}

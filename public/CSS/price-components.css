@@ -1,0 +1,32 @@
+.price {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #333;
+}
+
+.price-discount {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  color: #9C9C9C;
+  text-decoration: line-through;
+}
+
+.discount-percentage {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #9E4E31;
+  background-color: #FCF1ED;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
