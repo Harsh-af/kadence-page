@@ -23,6 +23,14 @@
   height: auto;
 }
 
+.desktop-image {
+  display: block;
+}
+
+.mobile-image {
+  display: none;
+}
+
 .product-slider {
   flex: 1;
   display: flex;
@@ -89,15 +97,17 @@
 }
 
 @media (max-width: 768px) {
-  .slider-container {
-    flex-direction: column;
+  .slider-view {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-image {
+    display: block;
   }
   
-  .product-title {
-    font-size: 20px;
-  }
-  
-  .product-price {
-    font-size: 17px;
+  .mobile-image {
+    display: none;
   }
 }

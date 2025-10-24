@@ -1,0 +1,195 @@
+.main-view_sp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: 36px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #F8F1E9;
+}
+
+.title-container_sp {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.main-title_sp {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0;
+  color: #572B39;
+}
+
+.music-icon_sp {
+  height: 20px;
+  width: auto;
+}
+
+.main-subtitle_sp {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  margin: 0 0 20px 0;
+  color: #9E858C;
+  white-space: normal;
+}
+
+.main-image-container_sp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+
+.main-image_sp {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .main-view_sp {
+    padding: 36px 16px;
+  }
+  
+  .main-title_sp {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  
+  .main-subtitle_sp {
+    font-size: 14px;
+  }
+  
+  .music-icon_sp {
+    height: 18px;
+  }
+}
+
+.mobile-product-slider_sp {
+  margin-top: 16px;
+  padding: 0;
+}
+
+.mobile-slider-container_sp {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.mobile-slider-track_sp {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: auto;
+}
+
+.mobile-product-card_sp {
+  min-width: 270px;
+  max-width: 80px;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #D8D8D8;
+  overflow: hidden;
+  margin-right: 10px;
+  padding: 6px;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mobile-product-image_sp {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  overflow: hidden;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.mobile-product-image_sp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-product-info_sp {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.mobile-product-title_sp {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #A38579;
+  margin: 0;
+  line-height: 1.3;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.mobile-price-container_sp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.mobile-price-container_sp .price {
+  font-size: 14px;
+}
+
+.mobile-price-container_sp .price-discount {
+  font-size: 12px;
+}
+
+.mobile-price-container_sp .discount-percentage {
+  font-size: 10px;
+  padding: 2px 6px;
+}
+
+.mobile-shop-now-button_sp {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #8B4513;
+  background: white;
+  border: 1px solid #8B4513;
+  padding: 4px 8px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  width: 100%;
+  /* max-width: 80px; */
+}
+
+.mobile-shop-now-button_sp:hover {
+  background: #8B4513;
+  color: white;
+}
+
+@media (min-width: 769px) {
+  .main-view_sp {
+    display: none;
+  }
+}

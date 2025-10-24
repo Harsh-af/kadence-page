@@ -1,4 +1,4 @@
-.main-view {
+.main-view_pc {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,15 @@
   margin: 0 auto;
 }
 
-.main-title {
+.title-container_pc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  margin-bottom: 16px;
+}
+
+.main-title_pc {
   font-family: 'Geologica', sans-serif;
   font-weight: 700;
   font-size: 32px;
@@ -17,16 +25,26 @@
   letter-spacing: 0.1em;
   text-align: center;
   text-transform: uppercase;
-  margin: 0 0 16px 0;
-  color: #333;
+  margin: 0;
+  color: #000;
 }
 
-.main-subtitle {
+.music-icon_pc {
+  display: none;
+}
+
+.main-subtitle_pc {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
   font-size: 18px;
   text-align: center;
   margin: 0;
-  color: #666;
+  color: #000;
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .main-view_pc {
+    display: none;
+  }
 }

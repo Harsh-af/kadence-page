@@ -4,7 +4,8 @@ function Footer() {
   return (
     <div className="footer-container">
       <div className="banner-image">
-        <img src="/Images/banner image.png" alt="Banner" />
+        <img src="/Images/banner_image_pc.png" alt="Banner" className="desktop-image" />
+        <img src="/Images/banner_image_sp.png" alt="Banner" className="mobile-image" />
       </div>
       
       <div className="footer-content">

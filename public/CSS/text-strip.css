@@ -19,3 +19,9 @@
   margin: 0;
   white-space: nowrap;
 }
+
+@media (max-width: 768px) {
+  .text-strip {
+    display: none;
+  }
+}
