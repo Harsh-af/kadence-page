@@ -67,7 +67,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 16px;
   border-radius: 50%;
   transition: background-color 0.3s ease;
   display: flex;
@@ -80,13 +79,12 @@
 }
 
 .nav-button img {
-  width: 200px;
   height: 40px;
 }
 
 .slider-navigation {
   display: flex;
-  gap: 0px;
+  gap: 16px;
   justify-content: center;
 }
 

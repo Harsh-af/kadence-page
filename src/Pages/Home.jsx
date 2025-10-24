@@ -4,16 +4,20 @@ import Navbar from '../Components/Navbar';
 import TextStrip from '../Components/TextStrip';
 import MainView from '../Components/MainView';
 import SliderView from '../Components/SliderView';
+import Footer from '../Components/Footer';
 
 function Home() {
   return (
-    <div>
+    <>
+      <div className="website-content">
         <MovingText />
         <Navbar />
         <TextStrip />
         <MainView />
         <SliderView />
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 

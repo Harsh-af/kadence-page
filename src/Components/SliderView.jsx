@@ -8,7 +8,7 @@ function SliderView() {
     <div className="slider-view">
       <div className="slider-container">
         <div className="static-image">
-          <img src="/Images/Image.png" alt="Static Image" />
+          <img src="/Images/Image_pc.png" alt="Static Image" />
         </div>
         
         <div className="product-slider">
