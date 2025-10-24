@@ -12,6 +12,12 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 480px) {
+  .moving-text-strip {
+    font-size: 10px;
+  }
+}
+
 .moving-text-content {
   display: inline-block;
   white-space: nowrap;
