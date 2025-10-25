@@ -84,20 +84,28 @@
 
 .mobile-slider-container_sp {
   position: relative;
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
   border-radius: 12px;
+  cursor: grab;
+  user-select: none;
+  scroll-snap-type: x mandatory;
+}
+
+.mobile-slider-container_sp:active {
+  cursor: grabbing;
 }
 
 .mobile-slider-track_sp {
   display: flex;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   width: auto;
+  touch-action: pan-y;
 }
 
 .mobile-product-card_sp {
   min-width: 270px;
-  max-width: 80px;
+  width: 270px;
   display: flex;
   flex-direction: row;
   background: white;
@@ -108,6 +116,7 @@
   padding: 6px;
   gap: 6px;
   flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .mobile-product-image_sp {

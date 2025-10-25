@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Price from './Price';
 import PriceDiscount from './PriceDiscount';
 import DiscountPercentage from './DiscountPercentage';
 
 function MainViewMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null);
 
   const products = [
     {
@@ -33,20 +34,105 @@ function MainViewMobile() {
       originalPrice: '₹7,999.00',
       discount: '31%',
       buttonText: 'Shop now'
+    },
+    {
+      id: 4,
+      image: '/Images/guitar_2_sp.png',
+      title: 'Electric Guitar Red with Accessories',
+      currentPrice: '₹6,299.00',
+      originalPrice: '₹8,999.00',
+      discount: '30%',
+      buttonText: 'Shop now'
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % products.length);
-  };
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => {
+      if (prev >= products.length - 1) {
+        return 0; // Loop back to start
+      }
+      return prev + 1;
+    });
+  }, [products.length]);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
-  };
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => {
+      if (prev <= 0) {
+        return products.length - 1; // Loop to end
+      }
+      return prev - 1;
+    });
+  }, [products.length]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+  // Handle arrow key navigation for mobile view
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (event.key === 'ArrowRight') {
+        nextSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [nextSlide, prevSlide]);
+
+  // Handle touch/swipe functionality
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    let startX = 0;
+    let startY = 0;
+    let isScrolling = false;
+    let isDragging = false;
+
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isScrolling = false;
+      isDragging = false;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isDragging) {
+        const deltaX = Math.abs(e.touches[0].clientX - startX);
+        const deltaY = Math.abs(e.touches[0].clientY - startY);
+        isScrolling = deltaY > deltaX;
+        isDragging = deltaX > 10 || deltaY > 10;
+      }
+    };
+
+    const handleTouchEnd = (e) => {
+      if (!isScrolling && isDragging) {
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = endX - startX;
+        const threshold = 30;
+
+        if (Math.abs(deltaX) > threshold) {
+          if (deltaX > 0) {
+            prevSlide();
+          } else {
+            nextSlide();
+          }
+        }
+      }
+      isDragging = false;
+    };
+
+    slider.addEventListener('touchstart', handleTouchStart, { passive: true });
+    slider.addEventListener('touchmove', handleTouchMove, { passive: true });
+    slider.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      slider.removeEventListener('touchstart', handleTouchStart);
+      slider.removeEventListener('touchmove', handleTouchMove);
+      slider.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [nextSlide, prevSlide]);
 
   return (
     <div className="main-view_sp">
@@ -58,11 +144,11 @@ function MainViewMobile() {
         Find the perfect instrument for your musical journey
       </p>
       <div className="main-image-container_sp">
-        <img src="/Images/Image_sp.png" alt="Main Image Mobile" className="main-image_sp" />
+        <img src="/Images/Image_sp.png" alt="Main" className="main-image_sp" />
       </div>
       <div className="mobile-product-slider_sp">
-        <div className="mobile-slider-container_sp">
-          <div className="mobile-slider-track_sp" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+        <div className="mobile-slider-container_sp" ref={sliderRef}>
+          <div className="mobile-slider-track_sp" style={{ transform: `translateX(-${currentSlide * 280}px)` }}>
             {products.map((product, index) => (
               <div key={product.id} className="mobile-product-card_sp">
                 <div className="mobile-product-image_sp">
