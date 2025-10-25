@@ -164,8 +164,8 @@ function MainViewMobile() {
                 style={{
                   position: 'absolute',
                   // Rough positions for 4 products on mobile - you can adjust these
-                  left: index === 0 ? '20%' : index === 1 ? '40%' : index === 2 ? '60%' : '80%',
-                  top: index === 0 ? '35%' : index === 1 ? '20%' : index === 2 ? '50%' : '65%'
+                  left: index === 0 ? '10%' : index === 1 ? '45%' : index === 2 ? '72%' : '74%',
+                  top: index === 0 ? '50%' : index === 1 ? '53%' : index === 2 ? '55%' : '69%'
                 }}
               />
             ))}
