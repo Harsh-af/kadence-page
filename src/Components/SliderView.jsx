@@ -90,7 +90,7 @@ function SliderView() {
       <div className="slider-container">
         <div className="static-image">
           <div className="image-container">
-            <img src="/Images/Image_sp.png" alt="Static Image" className="desktop-image" />
+            <img src="/Images/Image_pc.png" alt="Static Image" className="desktop-image" />
             <img src="/Images/Image_sp.png" alt="Static Image Mobile" className="mobile-image" />
 
             {/* PC Image Pointers */}
