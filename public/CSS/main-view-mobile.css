@@ -259,7 +259,6 @@
   }
 }
 
-/* Ensure mobile view is visible on mobile */
 @media (max-width: 768px) {
   .main-view_sp {
     display: flex !important;
