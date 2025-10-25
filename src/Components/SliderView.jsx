@@ -8,14 +8,14 @@ function SliderView() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const products = [
-    // {
-    //   id: 1,
-    //   image: '/Images/Product_1.png',
-    //   title: 'Acoustic Left Handed Guitar wooden texture',
-    //   currentPrice: '₹4,899.00',
-    //   originalPrice: '₹7,506.00',
-    //   discount: '35% OFF'
-    // },
+    {
+      id: 1,
+      image: '/Images/Product_1.png',
+      title: 'Acoustic Left Handed Guitar wooden texture',
+      currentPrice: '₹4,899.00',
+      originalPrice: '₹7,506.00',
+      discount: '35% OFF'
+    },
     {
       id: 2,
       image: '/Images/Product_2.png',
@@ -60,6 +60,15 @@ function SliderView() {
     }, 150);
   };
 
+  const goToProduct = (index) => {
+    if (isAnimating || index === currentProduct) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentProduct(index);
+      setTimeout(() => setIsAnimating(false), 50);
+    }, 150);
+  };
+
   // Handle arrow key navigation
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -80,8 +89,28 @@ function SliderView() {
     <div className="slider-view">
       <div className="slider-container">
         <div className="static-image">
-          <img src="/Images/Image_pc.png" alt="Static Image" className="desktop-image" />
-          <img src="/Images/Image_sp.png" alt="Static Image Mobile" className="mobile-image" />
+          <div className="image-container">
+            <img src="/Images/Image_sp.png" alt="Static Image" className="desktop-image" />
+            <img src="/Images/Image_sp.png" alt="Static Image Mobile" className="mobile-image" />
+
+            {/* PC Image Pointers */}
+            <div className="image-pointers desktop-pointers">
+              {products.map((_, index) => (
+                <button
+                  key={index}
+                  className={`image-pointer ${index === currentProduct ? 'active' : ''}`}
+                  onClick={() => goToProduct(index)}
+                  aria-label={`Go to product ${index + 1}`}
+                  style={{
+                    position: 'absolute',
+                    // Rough positions for 4 products - you can adjust these
+                    left: index === 0 ? '15%' : index === 1 ? '35%' : index === 2 ? '55%' : '75%',
+                    top: index === 0 ? '40%' : index === 1 ? '25%' : index === 2 ? '60%' : '45%'
+                  }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="product-slider">

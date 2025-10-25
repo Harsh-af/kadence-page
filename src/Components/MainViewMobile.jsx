@@ -64,6 +64,12 @@ function MainViewMobile() {
     });
   }, [products.length]);
 
+  const goToSlide = useCallback((index) => {
+    if (index >= 0 && index < products.length) {
+      setCurrentSlide(index);
+    }
+  }, [products.length]);
+
   // Handle arrow key navigation for mobile view
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -144,7 +150,27 @@ function MainViewMobile() {
         Find the perfect instrument for your musical journey
       </p>
       <div className="main-image-container_sp">
-        <img src="/Images/Image_sp.png" alt="Main" className="main-image_sp" />
+        <div className="mobile-image-container">
+          <img src="/Images/Image_sp.png" alt="Main" className="main-image_sp" />
+
+          {/* Mobile Image Pointers */}
+          <div className="image-pointers mobile-pointers">
+            {products.map((_, index) => (
+              <button
+                key={index}
+                className={`image-pointer mobile-image-pointer ${index === currentSlide ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                style={{
+                  position: 'absolute',
+                  // Rough positions for 4 products on mobile - you can adjust these
+                  left: index === 0 ? '20%' : index === 1 ? '40%' : index === 2 ? '60%' : '80%',
+                  top: index === 0 ? '35%' : index === 1 ? '20%' : index === 2 ? '50%' : '65%'
+                }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
       <div className="mobile-product-slider_sp">
         <div className="mobile-slider-container_sp" ref={sliderRef}>
